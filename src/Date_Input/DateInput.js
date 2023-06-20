@@ -6,7 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import ChartVisualization from "../Data_visualisation/ChartVisualization";
 import { Line } from "react-chartjs-2";
 import { Rocket } from "../assets/rocket.gif";
-
+import { PolarArea } from "react-chartjs-2";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -16,6 +16,9 @@ import {
   Title,
   Tooltip,
   Legend,
+  RadialLinearScale,
+  ArcElement
+  
 } from "chart.js";
 
 ChartJS.register(
@@ -25,7 +28,10 @@ ChartJS.register(
   LineElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
+  RadialLinearScale,
+  ArcElement
+  
 );
 const DateInput = () => {
   const [startdate, setStartDate] = useState(moment().format("YYYY-MM-DD"));
@@ -132,8 +138,8 @@ const DateInput = () => {
               label: "Number of asteroids",
               data: asteroidCount,
               fill: true,
-              borderColor: "#36A2EB",
-              backgroundColor: "#9BD0F5",
+              borderColor: "red",
+              backgroundColor:[ "red","green","blue","black","yellow","white","orange","violet"]
             },
           ],
         });
@@ -145,22 +151,21 @@ const DateInput = () => {
   const options = {
     responsive: true,
     scales: {
-      y: {
-        grid: {
-          color: "red",
-          borderColor: "grey",
-          tickColor: "white",
-        },
-        ticks: { color: "white", beginAtZero: false },
+    
+    r:{
+      suggestedMin:0,
+      suggestedMax:20,
+      grid:{
+circular:true,
+color:"white"
       },
-      x: {
-        grid: {
-          color: "red",
-          borderColor: "grey",
-          textStrokeWidth: "70",
-        },
-        ticks: { color: "white", beginAtZero: false, width: "10" },
-      },
+    // angleLines:{
+    //   display:true,
+    //   color:"red",
+    //   lineWidth:2
+    // }
+
+    }
     },
     plugins: {
       legend: {
@@ -178,9 +183,7 @@ const DateInput = () => {
       label: {
         color: "white",
       },
-      customCanvasBackgroundColor: {
-        color: "lightGreen",
-      },
+      
     },
     maintainAspectRatio: true, // Disable the aspect ratio
     height: 800, // Set the height of the chart
@@ -219,7 +222,7 @@ const DateInput = () => {
      </ul>
       </div>
       <hr/>
-      <div><button className="submit" onClick={()=>setShow(false)}>Close</button></div>
+      <div><button className="close" onClick={()=>setShow(false)}>Close</button></div>
       </div>:""}
       <div className="main">
        
@@ -260,12 +263,17 @@ const DateInput = () => {
       </div>
       <div className="chart">
         {Object.keys(chart).length > 0 && (
-          <Line
+          <div>
+          {/* <Line
             options={options}
             data={chart}
             style={{ height: 100, width: 300 }}
-          />
+          /> */}
+
+          <PolarArea options={options} data={chart}  className="polar" />
+          </div>
         )}
+
       </div>
       {(data.closest!==""&&data.average!==""&&data.fastest!=="")&&
       <div className="starts">

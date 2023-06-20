@@ -85,6 +85,10 @@
     border-radius: 0.5rem;
     width: 20%;
 }
+.polar{
+     height: 50vh;
+      width: 50vw 
+}
 .error{
     color: red;
 }
@@ -126,6 +130,14 @@
 .launch iframe{
  animation: launch 0.5 linear 
 }
+.close{
+    background: red;
+    font-weight: 700;
+    color:white;
+    text-align: center;
+    border-radius: 0.5rem;
+    width: 20%;
+}
 .starts{
     width: 100%;
     display: flex;
@@ -155,6 +167,10 @@
 
 }
 @media screen and (max-width:900px) {
+    .polar{
+        height: 500px;
+         width: 500px 
+   }
     .starts{
         width: 100%;
         display: flex;
@@ -259,5 +275,119 @@
         width: 60%;
         justify-content: space-between;
         align-items: center;
+    }
+}
+@media screen and (max-width:500px) {
+    .polar{
+        height: 500px;
+         width: 500px 
+   }
+    .starts{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        box-sizing: border-box;
+        padding: 5rem;
+        gap: 2rem;
+    }
+    .main{
+        box-sizing: border-box;
+        padding: 2rem;
+    }
+    .nav{
+        background: red;
+    }
+    .fastest,.closest,.average{
+        background: white;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 1rem;
+        box-shadow: 5px 5px 5px white;
+        height: 15rem;
+    }
+    .fastest h1,.closest h1,.average h1{
+        text-transform: uppercase;
+        font-size: 100%;
+    } 
+    .fetch{
+        width: 50%;
+        height: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        margin:0 auto
+    }   
+    .submit{
+        background: blue;
+        font-weight: 700;
+        color:white;
+        text-align: center;
+        border-radius: 0.5rem;
+        width: 50%;
+    }
+    .datepicker{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        margin: 0 auto;
+        align-items: center;
+        justify-content: center;
+        justify-content: space-around;
+    
+    }
+    .modal{
+        background: white;
+        width: 70%;
+        height: 70vh;
+        margin: 0 auto;
+        position: fixed;
+        left: 20%;
+        top:0
+    }
+    .top_modal{
+        display: flex;
+        flex-direction: row;
+        box-sizing: border-box;
+        padding: 0.5rem;
+        width: 100%;
+        height: 5rem;
+        justify-content: space-between;
+       
+    }
+    .top_modal h1{
+        font-size: 150%;
+    }
+    .constraints{
+        width: 80%;
+        margin: 0 auto;
+    }
+    .constraints ul {
+        list-style: none;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        gap:1rem
+    }
+    .submit{
+        background: blue;
+        font-weight: 700;
+        color:white;
+        text-align: center;
+        border-radius: 0.5rem;
+        padding: 0.5rem;
+        width: 10vw;
+    }
+    .btn_section{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .button{
+        width: 20rem;
     }
 }
