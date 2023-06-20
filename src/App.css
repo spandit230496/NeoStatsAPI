@@ -1,5 +1,11 @@
 .App {
   text-align: center;
+  height: 100vh;
+ background: url(./assets/alexander-andrews-eNoeWZkO7Zc-unsplash.jpg);
+ background-size: cover;
+ 
+  
+ 
 }
 
 .App-logo {
